@@ -53,6 +53,7 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
 import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount.js';
+import EditorWatchdog from '@ckeditor/ckeditor5-watchdog/src/editorwatchdog.js';
 
 class Editor extends BalloonBlockEditor {}
 
@@ -168,4 +169,4 @@ Editor.defaultConfig = {
 	}
 };
 
-export default Editor;
+export default { Editor, EditorWatchdog };
