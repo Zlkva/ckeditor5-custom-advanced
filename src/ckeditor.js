@@ -6,10 +6,12 @@ import BalloonBlockEditor from '@ckeditor/ckeditor5-editor-balloon/src/ballooned
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment.js';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat.js';
 import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage.js';
+import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave.js';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote.js';
 import BlockToolbar from '@ckeditor/ckeditor5-ui/src/toolbar/block/blocktoolbar.js';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold.js';
 import Code from '@ckeditor/ckeditor5-basic-styles/src/code.js';
+import DataFilter from '@ckeditor/ckeditor5-html-support/src/datafilter.js';
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials.js';
 import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolor.js';
 import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor.js';
@@ -41,6 +43,7 @@ import SpecialCharacters from '@ckeditor/ckeditor5-special-characters/src/specia
 import SpecialCharactersEssentials from '@ckeditor/ckeditor5-special-characters/src/specialcharactersessentials.js';
 import SpecialCharactersText from '@ckeditor/ckeditor5-special-characters/src/specialcharacterstext.js';
 import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough.js';
+import Style from '@ckeditor/ckeditor5-style/src/style.js';
 import Subscript from '@ckeditor/ckeditor5-basic-styles/src/subscript.js';
 import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript.js';
 import Table from '@ckeditor/ckeditor5-table/src/table.js';
@@ -62,10 +65,12 @@ Editor.builtinPlugins = [
 	Alignment,
 	Autoformat,
 	AutoImage,
+	Autosave,
 	BlockQuote,
 	BlockToolbar,
 	Bold,
 	Code,
+	DataFilter,
 	Essentials,
 	FontBackgroundColor,
 	FontColor,
@@ -97,6 +102,7 @@ Editor.builtinPlugins = [
 	SpecialCharactersEssentials,
 	SpecialCharactersText,
 	Strikethrough,
+	Style,
 	Subscript,
 	Superscript,
 	Table,
@@ -115,20 +121,22 @@ Editor.builtinPlugins = [
 Editor.defaultConfig = {
 	toolbar: {
 		items: [
-			'fontBackgroundColor',
 			'fontColor',
-			'fontSize',
+			'fontBackgroundColor',
 			'fontFamily',
+			'fontSize',
 			'bold',
 			'italic',
-			'link',
 			'strikethrough',
 			'underline',
-			'subscript',
 			'superscript',
+			'subscript',
+			'link',
 			'indent',
-			'outdent'
-		]
+			'outdent',
+			'-'
+		],
+		shouldNotGroupWhenFull: true
 	},
 	language: 'en',
 	blockToolbar: [
@@ -146,7 +154,8 @@ Editor.defaultConfig = {
 		'pageBreak',
 		'specialCharacters',
 		'undo',
-		'redo'
+		'redo',
+		'style'
 	],
 	image: {
 		toolbar: [
